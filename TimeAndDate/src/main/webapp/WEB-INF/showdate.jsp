@@ -7,11 +7,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	
+	<style>
+	h1{
+	color:blue;
+	font-size:4rem;
+	}
+	</style>
 </head>
 <body>
-	<h1 id="date">date</h1>
 	
-	<h2><c:out value="${date}"/></h2>
+	
+	<h1> ${dayName}, the ${numberDay} of ${monthName},  ${yearName}</h1>
 </body>
 </html>
