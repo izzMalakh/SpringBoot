@@ -18,3 +18,15 @@
 - Identify and use correctly the @PathVariable annotation and corresponding parameter declaration syntax.
 - Use @RequestMapping to process information from the client to return conditional or varied responses.
 
+##### Display Date:
+- Practice passing different kinds of data to the template.
+- Become more comfortable with routing.
+- Practice reading documentation & research skills to implement time formatting.
+- Add CSS and JavaScript to your project.
+
+##### Fruity Loops:
+- Practice setting up dependencies and imports for using JSP and the JSTL in a Spring project.
+- Review OOP concepts
+- Access member variables of an object instance from within a JSP file.
+- Become familiar with the c:forEach JSTL tags
+- Understand the correct syntax for using variables within JSTL tags e.g. when to use ${someVariable} within  c:out tags vs. a string literal.
