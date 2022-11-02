@@ -30,3 +30,10 @@
 - Access member variables of an object instance from within a JSP file.
 - Become familiar with the c:forEach JSTL tags
 - Understand the correct syntax for using variables within JSTL tags e.g. when to use ${someVariable} within  c:out tags vs. a string literal.
+
+##### Omikuji Form:
+- Get more comfortable with POST and passing information via a form
+- Be completely comfortable referencing static css
+- Note the importance of making your key assignments/projects look better
+- Understand why rendering HTML on a URL that received a POST is a bad idea
+
