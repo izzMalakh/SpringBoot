@@ -37,3 +37,7 @@
 - Note the importance of making your key assignments/projects look better
 - Understand why rendering HTML on a URL that received a POST is a bad idea
 
+##### Ninja Gold Game:
+- Implement forms and process user input using POST routes
+- Successfully redirect on POST routes
+- Use session to persist data between requests
