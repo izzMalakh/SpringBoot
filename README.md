@@ -41,3 +41,14 @@
 - Implement forms and process user input using POST routes
 - Successfully redirect on POST routes
 - Use session to persist data between requests
+
+
+##### All Books & Books API & Rendering Books
+- Practice retrieving records from the database
+- Become more familiar with the data format of JPA queries (Lists and objects)
+- Be able to pass lists of objects to the view model and render a list of objects from a JSP page to display in the browser.
+- Practice using JSTL forEach loops to render data dynamically in html format.
+- Add JSP templates and rendering views to your project.
+- Become more comfortable using path variables
+- Learn how to render data from the database in a readable format.
+- Use Postman (is an API(application programming interface) development tool which helps to build, test and modify APIs.) so i can test my work without front-end
