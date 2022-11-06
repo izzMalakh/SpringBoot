@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
+
+
+
+*{box-sizing:border-box; font-family: 'Plus Jakarta Sans', sans-serif;}
+
+
+
+h2{
+	padding-top:50px;
+}
+
+
+
+
+/* form */
+form{padding:0 50px;}
+form div{display:flex; align-items:center; justify-content:start; flex-wrap:wrap; padding-bottom:25px;}
+form div span{width: 250px; display: block;}
+form div input{width: calc(100% - 350px); padding:10px;}
+.error{color:var(--red);}
