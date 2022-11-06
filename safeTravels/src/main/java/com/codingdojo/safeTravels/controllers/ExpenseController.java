@@ -1,4 +1,4 @@
-package com.codingdojo.saveTravels.controllers;
+package com.codingdojo.safeTravels.controllers;
 import com.codingdojo.safeTravels.models.Expense;
 import com.codingdojo.safeTravels.services.ExpenseServices;
 
@@ -15,16 +15,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 
 @Controller
-public class ExpenseContoller {
+public class ExpenseController {
 	
 	@Autowired
 	ExpenseServices expenseServices;
+	
+	@GetMapping("")
+	public String strt() {
+		return "redirect:/expenses";
+	}
 	
 	@GetMapping("/expenses")
 	public String index(Model model, @ModelAttribute("expense") Expense expense) {
@@ -34,8 +40,10 @@ public class ExpenseContoller {
 	}
 	
 	@PostMapping("/api/create")
-	public String create(@Valid @ModelAttribute("expense") Expense expense, BindingResult result ) {
+	public String create(@Valid @ModelAttribute("expense") Expense expense, BindingResult result,Model model ) {
 		if(result.hasErrors()) {
+			List<Expense> expenses = expenseServices.allExpenses();
+			model.addAttribute("expenses", expenses);
 			return "index.jsp";
 		}else {
 			expenseServices.createExpense(expense);
@@ -50,7 +58,7 @@ public class ExpenseContoller {
 		return "edit.jsp";
 	}
 	
-	@PostMapping("/api/update")
+	@PostMapping("/api/update/{id}")
 	public String updateExpense(@Valid @ModelAttribute("expense") Expense expense, BindingResult result) {
 		if(result.hasErrors()) {
 			return "edit.jsp";

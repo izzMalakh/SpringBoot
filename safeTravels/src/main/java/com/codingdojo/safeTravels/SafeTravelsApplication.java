@@ -1,13 +1,13 @@
-package com.codingdojo.saveTravels;
+package com.codingdojo.safeTravels;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SaveTravelsApplication {
+public class SafeTravelsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SaveTravelsApplication.class, args);
+		SpringApplication.run(SafeTravelsApplication.class, args);
 	}
 
 }

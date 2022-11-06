@@ -1,10 +1,10 @@
-package com.codingdojo.saveTravels;
+package com.codingdojo.safeTravels;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SaveTravelsApplicationTests {
+class SafeTravelsApplicationTests {
 
 	@Test
 	void contextLoads() {

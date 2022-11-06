@@ -1,29 +1,34 @@
-package com.codingdojo.saveTravels.services;
+package com.codingdojo.safeTravels.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.codingdojo.saveTravels.models.Expense;
-import com.codingdojo.saveTravels.repositories.ExpenseRepository;
+import com.codingdojo.mvc.models.Book;
+import com.codingdojo.safeTravels.models.Expense;
+import com.codingdojo.safeTravels.repositories.ExpenseRepository;
 
 @Service
 public class ExpenseServices {
-	private final ExpenseRepository expenseRepository;
-
-	public ExpenseServices(ExpenseRepository expenseRepository) {
-		this.expenseRepository = expenseRepository;
-	}
-	// returns all the expense
+private final ExpenseRepository expenseRepository;
+    
+    public ExpenseServices(ExpenseRepository expenseRepository) {
+        this.expenseRepository = expenseRepository;
+    }
+    
+    // returns all the expense
     public List<Expense> allExpenses() {
     	return expenseRepository.findAll();
     }
- // creates a expense
+    
+    // creates a expense
     public Expense createExpense(Expense expense) {
         return expenseRepository.save(expense);
     }
- // retrieves a expense
+    
+
+    // retrieves a expense
     public Expense findExpense(Long id) {
         Optional<Expense> optionalExpense = expenseRepository.findById(id);
         if(optionalExpense.isPresent()) {
@@ -37,6 +42,7 @@ public class ExpenseServices {
     	expenseRepository.deleteById(id);
     }
     
+ 
     public Expense updateExpense(Expense expense) {
     	Optional<Expense> optionalExpense = expenseRepository.findById(expense.getId());
     	
@@ -54,7 +60,5 @@ public class ExpenseServices {
             return null;
         }
     }
-    
-	
-	
+   
 }
