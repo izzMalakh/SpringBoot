@@ -52,3 +52,10 @@
 - Become more comfortable using path variables
 - Learn how to render data from the database in a readable format.
 - Use Postman (is an API(application programming interface) development tool which helps to build, test and modify APIs.) so i can test my work without front-end
+
+##### Book Club:
+- Add users to an application with Create and Read capabilities.
+- Implement a one-to-many relationship between User and another model.
+- Identify and implement routes for requests based on a wireframe
+- Manage a user session (log in status) by storing and reading their ID in session.
+- Apply cumulative skills to build and de-bug a full-stack application.
