@@ -20,22 +20,22 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 @Entity
-@Table(name="things")
-public class Thing {
+@Table(name="books")
+public class Book {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
 	@NotNull
 	@Size(min=2,max=100,message="Name must be at least 2 chars")
-	private String name;
+	private String title;
 	
 	@NotNull(message="Gender cannot be null")
 	private String gender;
 	
 	@NotNull
 	@Size(min=2,max=150,message="origin must be between 2 and 150 chars")
-	private String origin;
+	private String site;
 	
 	@NotNull
 	@Size(min=5,max=200,message="description must be between 5 and 200 chars")
@@ -54,7 +54,7 @@ public class Thing {
     private User user;
     
     // ================================ CONSTRUCTORS ================================
-    public Thing() {
+    public Book() {
 		super();
 	}
     // ================================ GETTERS / SETTERS ================================
@@ -66,13 +66,7 @@ public class Thing {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public String getGender() {
 		return gender;
@@ -82,14 +76,20 @@ public class Thing {
 		this.gender = gender;
 	}
 
-	public String getOrigin() {
-		return origin;
-	}
 
-	public void setOrigin(String origin) {
-		this.origin = origin;
-	}
 
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSite() {
+		return site;
+	}
+	public void setSite(String site) {
+		this.site = site;
+	}
 	public String getDescription() {
 		return description;
 	}

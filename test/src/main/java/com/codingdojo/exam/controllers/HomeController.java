@@ -17,22 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.exam.models.LoginUser;
-import com.codingdojo.exam.models.Thing;
+import com.codingdojo.exam.models.Book;
 import com.codingdojo.exam.models.User;
-import com.codingdojo.exam.services.ThingService;
+import com.codingdojo.exam.services.BookService;
 import com.codingdojo.exam.services.UserService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private final UserService userSer;
-	private final ThingService thingSer;
+	private final BookService bookSer;
 
 	
-	public HomeController(UserService userSer,ThingService thingSer){
+	public HomeController(UserService userSer,BookService bookSer){
 		super();
 		this.userSer = userSer;
-		this.thingSer = thingSer;
+		this.bookSer = bookSer;
 		
 	}
 	// ================================ GENERAL ================================
@@ -52,8 +52,8 @@ public class HomeController {
 			if(session.getAttribute("user_id") != null ) {
 				Long loggedID = (Long) session.getAttribute("user_id");
 				User userr = userSer.oneUser(loggedID);
-				List<Thing> things = thingSer.allThings();
-				model.addAttribute("things",things);
+				List<Book> books = bookSer.allBooks();
+				model.addAttribute("books",books);
 				model.addAttribute("logged",userr);
 				return "dashboard.jsp";
 			}else {
@@ -95,20 +95,20 @@ public class HomeController {
 		}
 		
 		// ======================================== add route =============================================
-		@GetMapping("/add/thing")
-		public String addThing(Model model,@ModelAttribute("thing") Thing thing,HttpSession session,RedirectAttributes redirectAttributes) {
+		@GetMapping("/add/book")
+		public String addBook(Model model,@ModelAttribute("book") Book book,HttpSession session,RedirectAttributes redirectAttributes) {
 			Long loggedID = (Long) session.getAttribute("user_id");
 			User userName = userSer.oneUser(loggedID);
 			model.addAttribute("userName",userName);
-			return "addThing.jsp";
+			return "addBook.jsp";
 		}
 		
-		@PostMapping("/api/add/thing")
-		public String addNameForm(Model model,@Valid @ModelAttribute("thing") Thing name,BindingResult result,HttpSession session,RedirectAttributes redirectAttributes) {
+		@PostMapping("/api/add/book")
+		public String addNameForm(Model model,@Valid @ModelAttribute("book") Book name,BindingResult result,HttpSession session,RedirectAttributes redirectAttributes) {
 			
-			thingSer.thingExsist(name,result);
+			bookSer.bookExsist(name,result);
 			if(result.hasErrors()) {	
-				return "addThing.jsp";
+				return "addBook.jsp";
 			}else {
 				return "redirect:/dashboard";
 				
@@ -116,45 +116,45 @@ public class HomeController {
 		}
 		
 		//============================================See Detail page==========================================================
-		@GetMapping("/thing/{id}")
+		@GetMapping("/book/{id}")
 		public String name(Model model,@PathVariable("id") Long id,HttpSession session) {
-			Thing thing = thingSer.singleThing(id);
+			Book book = bookSer.singleBook(id);
 			Long loggedID = (Long) session.getAttribute("user_id");
 			User userName = userSer.oneUser(loggedID);
 			model.addAttribute("userName",userName);
-			model.addAttribute("name",thing);
-			return "thingDetails.jsp";
+			model.addAttribute("name",book);
+			return "bookDetails.jsp";
 		}
 		
 		//==============================================delete and edit methods=========================================================================
-		@GetMapping("/edit/thing/{id}")
-		public String editName(Model model,HttpSession session,@PathVariable("id") Long id,@ModelAttribute("thing") Thing thing) {
+		@GetMapping("/edit/book/{id}")
+		public String editName(Model model,HttpSession session,@PathVariable("id") Long id,@ModelAttribute("book") Book book) {
 			Long loggedID = (Long) session.getAttribute("user_id");
 			User userName = userSer.oneUser(loggedID);
-			Thing currentThing = thingSer.singleThing(id);
+			Book currentBook = bookSer.singleBook(id);
 			model.addAttribute("userName",userName);
-			model.addAttribute("currentThing",currentThing);
-			return "editThing.jsp";
+			model.addAttribute("currentBook",currentBook);
+			return "editBook.jsp";
 		}
 		
-		@PostMapping("/api/edit/thing/{id}")
-		public String updateNameForm(Model model,@PathVariable("id") Long id, @Valid @ModelAttribute("thing") Thing thing,BindingResult result,HttpSession session) {
+		@PostMapping("/api/edit/book/{id}")
+		public String updateNameForm(Model model,@PathVariable("id") Long id, @Valid @ModelAttribute("book") Book book,BindingResult result,HttpSession session) {
 			if(result.hasErrors()) {
 				Long loggedID = (Long) session.getAttribute("user_id");
 				User userName = userSer.oneUser(loggedID);
-				Thing currentThing = thingSer.singleThing(id);
+				Book currentBook = bookSer.singleBook(id);
 				model.addAttribute("userName",userName);
-				model.addAttribute("currentThing",currentThing);
-				return "editThing.jsp";
+				model.addAttribute("currentBook",currentBook);
+				return "editBook.jsp";
 			}else {
-				thingSer.updateThing(thing);
+				bookSer.updateBook(book);
 				return "redirect:/dashboard";
 			}
 		}
 		
-		@RequestMapping("/delete/thing/{id}")
+		@RequestMapping("/delete/book/{id}")
 	    public String destroy(@PathVariable("id") Long id) {
-			thingSer.deleteThing(id);
+			bookSer.deleteBook(id);
 	        return "redirect:/dashboard";
 	    }
 }

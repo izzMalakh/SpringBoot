@@ -22,14 +22,14 @@
 <div class="container singleName">
 		<nav>
 			<a href="/dashboard">Dashboard</a> |
-			<a href="/add/thing">Add Thing</a> |
+			<a href="/add/book">Add Book</a> |
 			<a href="/logout">Logout</a>
 		</nav>
-	<h1>${name.name }</h1>
+	<h1>${name.title }</h1>
 	<h3><strong>Des: </strong>${name.description }</h3>
 	<p class="name">Added by: ${name.user.firstName }</p>
 	<p class="gender">Gender: ${name.gender }</p>
-	<p class="orgin">Origin: ${name.origin }</p>
+	<p class="orgin">Origin: ${name.site }</p>
 	
 
 	<br>
@@ -38,8 +38,8 @@
 	
 	<c:choose>
   		<c:when test="${name.user.id.equals(userName.id) }">
-  			<a  href="/edit/thing/${name.id}" class="btn btn-success">Edit Thing</a><br><br>
-  			<a href="/delete/thing/${name.id }" class="btn btn-danger"> Delete Thing</a>
+  			<a  href="/edit/book/${name.id}" class="btn btn-success">Edit Book</a><br><br>
+  			<a href="/delete/book/${name.id }" class="btn btn-danger"> Delete Book</a>
 			
   		</c:when>
   	</c:choose>

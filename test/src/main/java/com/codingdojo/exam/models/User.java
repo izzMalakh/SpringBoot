@@ -62,7 +62,7 @@ public class User {
     
     // ================================ RELATIPNSHIPS ================================
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Thing> things;
+    private List<Book> books;
     
 
 
@@ -139,12 +139,12 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Thing> getNames() {
-		return things;
+	public List<Book> getNames() {
+		return books;
 	}
 
-	public void setNames(List<Thing> things) {
-		this.things = things;
+	public void setNames(List<Book> books) {
+		this.books = books;
 	}
 	
 	@PrePersist

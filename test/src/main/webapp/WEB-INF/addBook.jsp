@@ -20,19 +20,19 @@
 <div class="container">
 		<nav>
 			<a href="/dashboard">Dashboard</a> |
-			<a href="/add/thing">Add Thing</a> |
+			<a href="/add/book">Add Book</a> |
 			<a href="/logout">Logout</a>
 		</nav>
-	<h5 style="font-size:4.4rem; margin-bottom:20px;">Edit Thing</h5>
+	<h5 style="font-size:4.4rem; margin-bottom:20px;">Add Book</h5>
 	<h3></h3>
 	<div class="flex">
-		<form:form method="post" action="/api/edit/thing/${currentThing.id}" modelAttribute="currentThing">
+		<form:form method="post" action="/api/add/book" modelAttribute="book">
 		<div>
 			<span>
-				<form:label path="name"> Name</form:label>
+				<form:label path="title"> Name</form:label>
 			</span>
-			<form:input path="name" type="text" class="givething"/>
-			<form:errors path="name" class="error"/>
+			<form:input path="title" type="text" class="givebook"/>
+			<form:errors path="title" class="error"/>
 			<p>${error }</p>
 		</div>
 		
@@ -52,10 +52,10 @@
 		
 		<div>
 			<span>
-				<form:label path="origin">Orgin</form:label>
+				<form:label path="site">Orgin</form:label>
 			</span>
-			<form:input path="origin" type="text" />
-			<form:errors path="origin" class="error"/>
+			<form:input path="site" type="text" />
+			<form:errors path="site" class="error"/>
 		</div>
 		
 		<div>
@@ -67,7 +67,8 @@
 		</div>
 		
 			<input type="hidden" name="user" value="${userName.id }"/>
-			<input type="submit" value="Edit Thing" class="submit"/>
+			
+			<input type="submit" value="Add Book" class="submit"/>
 		</form:form>
 	</div>
 </div>

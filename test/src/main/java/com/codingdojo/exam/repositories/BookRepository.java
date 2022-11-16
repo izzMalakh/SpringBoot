@@ -6,16 +6,16 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.codingdojo.exam.models.Thing;
+import com.codingdojo.exam.models.Book;
 
 
 
 
 
 @Repository
-public interface ThingRepository extends CrudRepository<Thing,Long> {
-	List<Thing> findAll();
+public interface BookRepository extends CrudRepository<Book,Long> {
+	List<Book> findAll();
 	
 
-	Optional<Thing> findByname(String thing);
+	Optional<Book> findByname(String thing);
 }
